@@ -3,8 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Ammar Ramadhan/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/Users/Ammar Ramadhan/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/drawable/account_selector.xml" value="0.227" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/drawable/balance_selector.xml" value="0.227" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1005" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/drawable/myplan_selector.xml" value="0.227" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/drawable/new_selector.xml" value="0.227" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/drawable/summary_selector.xml" value="0.227" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/activity_register.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/activity_splash_screen.xml" value="0.3596014492753623" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/fragment_account.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/fragment_balance.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/fragment_myplan.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/fragment_newplan.xml" value="0.33" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/layout/fragment_summary.xml" value="0.22916666666666666" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/menu/bottom_meu.xml" value="0.1" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/FirebaseUserAuthentication/app/src/main/res/mipmap-anydpi-v26/planney_logo.xml" value="0.1005" />
       </map>
     </option>
   </component>

@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">PlanneyApp</string>
-    <string name="testing">test</string>
-    <string name="your_email">Your Email</string>
-    <string name="welcome">Welcome Onboard</string>
-    <string name="version">b01.0001</string>
+    <string name="app_name">FireBaseAuthentication</string>
+    <string name="icon_name">Planney</string>
 </resources>

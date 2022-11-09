@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:layout_height="match_parent">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,21 +29,31 @@
         android:text="Logout"
         android:textColor="@color/white" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_menu"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        app:itemIconSize="30dp"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/bottom_menu" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/name"
+        android:layout_centerInParent="true"
+        android:text="Hello" />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="..." />
 
-    <FrameLayout
-        android:id="@+id/container_fragment"
+    <Button
+        android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/bottom_navigation_menu" />
-
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="69dp"
+        android:backgroundTint="@color/black"
+        android:text="Logout"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
