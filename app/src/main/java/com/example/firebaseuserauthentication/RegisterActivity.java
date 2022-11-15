@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,23 +16,33 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-    private EditText editName, editEmail, editPassword, editPasswordConf;
+    private EditText editEmail, editPassword, editPasswordConf, editQuestion, editAnswer;
     private Button btnRegister, btnLogin;
     private ProgressDialog progressDialog;
     private FirebaseAuth mAuth;
+    private DatabaseReference dbref;
+    private ReadWriteUserQNA writeUserQNA;
+
+    private static final String TAG="RegisterActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        editName = findViewById(R.id.name);
         editEmail = findViewById(R.id.email);
         editPassword = findViewById(R.id.password);
         editPasswordConf = findViewById(R.id.password_conf);
+        editQuestion = findViewById(R.id.question);
+        editAnswer = findViewById(R.id.answer);
         btnRegister = findViewById(R.id.btn_register);
         btnLogin = findViewById(R.id.btn_login);
 
@@ -40,13 +52,16 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.setMessage("Please Wait");
         progressDialog.setCancelable(false);
 
+        writeUserQNA = new ReadWriteUserQNA();
+        dbref = FirebaseDatabase.getInstance().getReference("Registered Users");
+
         btnLogin.setOnClickListener(v -> {
             finish();
         });
         btnRegister.setOnClickListener(v -> {
-           if(editName.getText().length()>0 && editEmail.getText().length()>0 && editPassword.getText().length()>0 && editPasswordConf.getText().length()>0){
+           if(editEmail.getText().length()>0 && editPassword.getText().length()>0 && editPasswordConf.getText().length()>0 && editQuestion.getText().length()>0 && editAnswer.getText().length()>0){
                 if(editPassword.getText().toString().equals(editPasswordConf.getText().toString())){
-                    register(editName.getText().toString(), editEmail.getText().toString(), editPassword.getText().toString());
+                    register(editEmail.getText().toString(), editPassword.getText().toString(), editQuestion.getText().toString(),editAnswer.getText().toString());
                }else{
                     Toast.makeText(getApplicationContext(),"Please fill in the same passwords", Toast.LENGTH_SHORT).show();
                }
@@ -56,30 +71,45 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void register(String name, String email, String password){
+    private void register(String email, String password, String question, String answer){
         progressDialog.show();
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful() && task.getResult()!=null){
-                    FirebaseUser firebaseUser = task.getResult().getUser();
-                    if(firebaseUser!=null) {
-                        UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(name)
-                                .build();
-                        firebaseUser.updateProfile(request).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                reload();
-                            }
-                        });
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Registration Failed", Toast.LENGTH_SHORT).show();
+                if(task.isSuccessful()) {
+                    FirebaseUser firebaseUser = auth.getCurrentUser();
+
+                    writeUserQNA.setTextQuestion(editQuestion.getText().toString());
+                    writeUserQNA.setTextAnswer(editAnswer.getText().toString());
+                    // To get the UID from the Firebase Authentication and NOT generated by the Realtime Database
+                    String uid = task.getResult().getUser().getUid();
+
+                    // To insert the UID under the Registered Users
+                    dbref = FirebaseDatabase.getInstance().getReference("Registered Users").child(uid);
+                    // To insert the value of question and answer
+                    dbref.setValue(writeUserQNA);
+
+                } else {
+                    try {
+                        throw task.getException();
+                    } catch (FirebaseAuthWeakPasswordException e) {
+                        editPassword.setError("Your password is too weak. Please use a mix of alphabets, numbers and special characters");
+                        editPassword.requestFocus();
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                        editPassword.setError("Your email is invalid or already in use. Please re-enter.");
+                        editPassword.requestFocus();
+                    } catch (FirebaseAuthUserCollisionException e) {
+                        editPassword.setError("User is already registered with this email. Use another email.");
+                        editPassword.requestFocus();
+                    } catch (Exception e) {
+                        Log.e(TAG, e.getMessage());
+                        Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }else{
-                    Toast.makeText(getApplicationContext(), task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    // Hide Progress Dialog
+                    progressDialog.dismiss();
                 }
-                progressDialog.dismiss();
+                reload();
             }
         });
     }
@@ -87,7 +117,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void reload(){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
-
+/*
     @Override
     public void onStart() {
         super.onStart();
@@ -96,5 +126,5 @@ public class RegisterActivity extends AppCompatActivity {
         if(currentUser != null){
             reload();
         }
-    }
+    }*/
 }
