@@ -93,11 +93,11 @@ public class LoginActivity extends AppCompatActivity {
         final EditText emailet= new EditText(this);
 
         // write the email using which you registered
-        emailet.setText("Email");
+        emailet.setHint("Please enter your email");
         emailet.setMinEms(16);
         emailet.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         linearLayout.addView(emailet);
-        linearLayout.setPadding(10,10,10,10);
+        linearLayout.setPadding(70,60,70,40);
         builder.setView(linearLayout);
 
         // Click on Recover and a email will be sent to your registered email id

@@ -21,9 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    private FirebaseUser firebaseUser;
-    private TextView textName;
-    private Button btnLogout;
+
     private NavigationBarView.OnItemSelectedListener navigation = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     f = new FragmentBalance();
                     break;
                 case R.id.newplan:
-                    f = new FragmentNewPlan();
+                    f = new FragmentNewPlanCreate();
                     break;
                 case R.id.myplan:
                     f = new FragmentMyPlan();
@@ -51,31 +49,14 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-    @SuppressLint("SetTextI18n")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
         bottomNavigationView.setOnItemSelectedListener(navigation);
-        textName = findViewById(R.id.name);
-        btnLogout = findViewById(R.id.btn_logout);
-
 
         bottomNavigationView.setItemIconTintList(null);
-
-        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        if(firebaseUser!=null){
-            textName.setText(firebaseUser.getDisplayName());
-        }else{
-            textName.setText("Login Failed");
-        }
-
-        btnLogout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            finish();
-        });
     }
 }

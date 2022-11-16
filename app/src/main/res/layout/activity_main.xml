@@ -6,32 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/name"
-        android:layout_centerInParent="true"
-        android:text="Hello" />
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="..." />
 
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="69dp"
-        android:backgroundTint="@color/black"
-        android:text="Logout"
-        android:textColor="@color/white" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_menu"
