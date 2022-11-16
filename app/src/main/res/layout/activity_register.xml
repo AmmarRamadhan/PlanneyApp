@@ -57,32 +57,6 @@
                 android:hint="Password Confirmation"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="@color/white">
-            <EditText
-                android:id="@+id/question"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Type a question"
-                android:inputType="textPersonName"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:boxBackgroundMode="outline"
-            app:boxBackgroundColor="@color/white">
-            <EditText
-                android:id="@+id/answer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Type the answer"
-                android:inputType="textPersonName"/>
-        </com.google.android.material.textfield.TextInputLayout>
         <Button
             android:id="@+id/btn_register"
             android:layout_width="match_parent"

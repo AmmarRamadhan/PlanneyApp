@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FireBaseAuthentication</string>
+    <string name="app_name">Planney</string>
     <string name="icon_name">Planney</string>
     <string name="welcome"><b>Welcome Onboard</b></string>
     <string name="your_email"><b>Your Email</b></string>
