@@ -28,12 +28,7 @@
         <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/activity_register.xml" value="0.33" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/fragment_account.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/fragment_balance.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/fragment_myplan.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/fragment_newplan.xml" value="0.33" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/fragment_newplancreate.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/PlanneyApp/app/src/main/res/layout/fragment_newplan.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>

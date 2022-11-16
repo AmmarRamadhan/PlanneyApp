@@ -2,10 +2,15 @@
     <string name="app_name">Planney</string>
     <string name="icon_name">Planney</string>
     <string name="welcome"><b>Welcome Onboard</b></string>
+    <string name="sign_up_title"><b>Sign Up</b></string>
     <string name="your_email"><b>Your Email</b></string>
+    <string name="enter_your_email"><b>Enter Your Email</b></string>
     <string name="your_password"><b>Your Password</b></string>
+    <string name="enter_your_password"><b>Enter Your Password</b></string>
+    <string name="retype_your_password"><b>Retype Your Password</b></string>
     <string name="forgot_password"><b>Forgot Password?</b></string>
     <string name="sign_in"><b>Sign In</b></string>
+    <string name="log_in"><b>Log In</b></string>
     <string name="sign_up"><b>Don\'t have account\?\nSign Up</b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
