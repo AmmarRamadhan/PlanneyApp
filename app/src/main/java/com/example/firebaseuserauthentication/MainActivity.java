@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                     f = new FragmentBalance();
                     break;
                 case R.id.newplan:
-                    f = new FragmentNewPlanCreate();
+                    f = new FragmentNewPlan();
                     break;
                 case R.id.myplan:
                     f = new FragmentMyPlan();

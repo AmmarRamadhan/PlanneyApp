@@ -4,6 +4,8 @@ public class WriteUserNewPlan {
     private String textEvent;
     private String textAmount;
     private String textDescription;
+    private String textDateFrom;
+    private String textDateUntil;
 
     public String getTextEvent() {
         return textEvent;
@@ -21,11 +23,27 @@ public class WriteUserNewPlan {
         this.textAmount = amount;
     }
 
+    public String getTextDescription(){
+        return textDescription;
+    }
+
     public void setTextDescription(String description) {
         this.textDescription = description;
     }
 
-    public String getTextDescription(){
-        return textDescription;
+    public String getTextDateFrom(){
+        return textDateFrom;
+    }
+
+    public void setTextDateFrom(String pick_date_from) {
+        this.textDateFrom = pick_date_from;
+    }
+
+    public String getTextDateUntil(){
+        return textDateUntil;
+    }
+
+    public void setTextDateUntil(String pick_date_until) {
+        this.textDateUntil = pick_date_until;
     }
 }

@@ -7,10 +7,17 @@
         android:id="@+id/textMyplan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is my plan"
-        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:gravity="top"
+        android:text="My Plan"
         android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="250dp"/>
+        android:textSize="30sp" />
 
+    <ImageView
+        android:id="@+id/newplancreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/new_green" />
 </RelativeLayout>

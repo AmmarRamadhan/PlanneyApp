@@ -10,11 +10,11 @@
         android:orientation="vertical"
         android:padding="14dp">
         <TextView
-            android:id="@+id/textNewPlan"
+            android:id="@+id/textMyPlanCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:text="What's Next?"
             android:textColor="@color/black"
             android:textSize="30sp" />
@@ -48,20 +48,30 @@
             android:ems="10"
             android:hint="Amount"
             android:inputType="number" />
-        <Button
-            android:id="@+id/btn_pick_date_from"
-            android:layout_width="345dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Pick Date From"
-            android:textAllCaps="false" />
-        <Button
-            android:id="@+id/btn_pick"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Pick Date Until"
-            android:textAllCaps="false" />
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/pick_date_from"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Date from"
+                android:focusable="false"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1.0"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/pick_date_until"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="Date until"
+                android:focusable="false"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1.0"
+                android:inputType="date" />
+        </LinearLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,21 +81,29 @@
             <EditText
                 android:id="@+id/description"
                 android:layout_width="match_parent"
+                android:gravity="top|start"
                 android:layout_height="163dp"
                 android:hint="Description"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1.0"
             android:text="Save" />
         <Button
             android:id="@+id/btn_cancel"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1.0"
             android:text="Cancel" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FragmentNewPlanCreate">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textNewPlan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <ImageView
-        android:id="@+id/newplancreate"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/new_green" />
+        android:text="This is New page"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginTop="250dp"/>
 
-</FrameLayout>
+</RelativeLayout>
