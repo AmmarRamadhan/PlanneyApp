@@ -134,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="55dp"
-        android:text="+62 821-3287-1185+12"
+        android:text="+62 821-3287-1185+123"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
