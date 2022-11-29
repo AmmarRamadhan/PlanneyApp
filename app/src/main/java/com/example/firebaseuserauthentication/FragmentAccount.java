@@ -18,8 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class FragmentAccount extends Fragment {
     private FirebaseUser firebaseUser;
-    private TextView textName;
-    private Button btnLogout;
+    private TextView textsignout, texthelpcenter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,19 +31,24 @@ public class FragmentAccount extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        textName = getView().findViewById(R.id.name);
-        btnLogout = getView().findViewById(R.id.btn_logout);
+        textsignout = getActivity().findViewById(R.id.textsignout);
+        texthelpcenter = getActivity().findViewById(R.id.texthelpcenter);
+        // textName = getView().findViewById(R.id.name);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(firebaseUser!=null){
+        /* if(firebaseUser!=null){
             textName.setText(firebaseUser.getDisplayName());
         }else{
             textName.setText("Login Failed");
         }
-
-        btnLogout.setOnClickListener(v -> {
+        */
+        textsignout.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(getActivity().getApplicationContext(), LoginActivity.class));
+            getActivity().finish();
+        });
+        texthelpcenter.setOnClickListener(v -> {
+            startActivity(new Intent(getActivity().getApplicationContext(), HelpCenterActivity.class));
             getActivity().finish();
         });
     }
