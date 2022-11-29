@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class FragmentAccount extends Fragment {
     private FirebaseUser firebaseUser;
-    private TextView textsignout, texthelpcenter;
+    private TextView textsignout, texthelpcenter, textmywallet, textsetting, textpersonalinfo;
 
     @Nullable
     @Override
@@ -33,6 +33,10 @@ public class FragmentAccount extends Fragment {
 
         textsignout = getActivity().findViewById(R.id.textsignout);
         texthelpcenter = getActivity().findViewById(R.id.texthelpcenter);
+        textmywallet = getActivity().findViewById(R.id.textMyWallet);
+        textsetting = getActivity().findViewById(R.id.textSetting);
+        textpersonalinfo = getActivity().findViewById(R.id.textpersonalinfo);
+
         // textName = getView().findViewById(R.id.name);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -50,6 +54,11 @@ public class FragmentAccount extends Fragment {
         texthelpcenter.setOnClickListener(v -> {
             startActivity(new Intent(getActivity().getApplicationContext(), HelpCenterActivity.class));
             getActivity().finish();
+        });
+
+        textmywallet.setOnClickListener(v -> {
+            Fragment fragment = new FragmentMyWallet();
+            getParentFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
         });
     }
 }
