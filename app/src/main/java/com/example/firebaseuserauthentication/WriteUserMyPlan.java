@@ -1,11 +1,11 @@
 package com.example.firebaseuserauthentication;
 
-public class WriteUserNewPlan {
+public class WriteUserMyPlan {
     private String textEvent;
     private String textAmount;
     private String textDescription;
-    private String textDate;
-    private String textTransaction;
+    private String textDateFrom;
+    private String textDateUntil;
 
     public String getTextEvent() {
         return textEvent;
@@ -31,19 +31,19 @@ public class WriteUserNewPlan {
         this.textDescription = description;
     }
 
-    public String getTextDate(){
-        return textDate;
+    public String getTextDateFrom(){
+        return textDateFrom;
     }
 
-    public void setTextDate(String pick_date) {
-        this.textDate = pick_date;
+    public void setTextDateFrom(String pick_date_from) {
+        this.textDateFrom = pick_date_from;
     }
 
-    public String getTextTransaction(){
-        return textTransaction;
+    public String getTextDateUntil(){
+        return textDateUntil;
     }
 
-    public void setTextTransaction(String transaction) {
-        this.textTransaction = transaction;
+    public void setTextDateUntil(String pick_date_until) {
+        this.textDateUntil = pick_date_until;
     }
 }
