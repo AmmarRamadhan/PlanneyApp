@@ -7,18 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class FragmentAccount extends Fragment {
     private FirebaseUser firebaseUser;
-    private TextView textsignout, texthelpcenter, textmywallet, textsetting, textpersonalinfo;
+    private TextView textsignout, texthelpcenter, textmywallet, textpersonalinfo;
+    private SwitchMaterial switchBtn;
 
     @Nullable
     @Override
@@ -34,31 +39,56 @@ public class FragmentAccount extends Fragment {
         textsignout = getActivity().findViewById(R.id.textsignout);
         texthelpcenter = getActivity().findViewById(R.id.texthelpcenter);
         textmywallet = getActivity().findViewById(R.id.textMyWallet);
-        textsetting = getActivity().findViewById(R.id.textSetting);
         textpersonalinfo = getActivity().findViewById(R.id.textpersonalinfo);
 
-        // textName = getView().findViewById(R.id.name);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        /* if(firebaseUser!=null){
-            textName.setText(firebaseUser.getDisplayName());
-        }else{
-            textName.setText("Login Failed");
-        }
-        */
-        textsignout.setOnClickListener(v -> {
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getActivity().getApplicationContext(), LoginActivity.class));
-            getActivity().finish();
+        textpersonalinfo.setOnClickListener(v -> {
+            Fragment fragment = new FragmentPersonalInfo();
+            getParentFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
         });
+
+/*
+       switchBtn = getActivity().findViewById(R.id.switchDarkMode);
+
+       switchBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (compoundButton.isChecked()) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                }
+            }
+        });
+
+        boolean isDarkModeOn = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
+        switchBtn.setChecked(isDarkModeOn);
+
+        if (isDarkModeOn){
+            switchBtn.setText("Dark Mode");
+        } else {
+            switchBtn.setText("Light Mode");
+        }
+       */
+        textmywallet.setOnClickListener(v -> {
+            Fragment fragment = new FragmentMyWallet();
+            getParentFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
+        });
+
         texthelpcenter.setOnClickListener(v -> {
             startActivity(new Intent(getActivity().getApplicationContext(), HelpCenterActivity.class));
             getActivity().finish();
         });
 
-        textmywallet.setOnClickListener(v -> {
-            Fragment fragment = new FragmentMyWallet();
-            getParentFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
+        textsignout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(getActivity().getApplicationContext(), LoginActivity.class));
+            getActivity().finish();
         });
+
     }
+
 }
