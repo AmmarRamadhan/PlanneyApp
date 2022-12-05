@@ -55,7 +55,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation_menu);
+        bottomNavigationView.setSelectedItemId(R.id.summary);
         bottomNavigationView.setOnItemSelectedListener(navigation);
+
+        Fragment fragment = new FragmentSummary();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
 
         bottomNavigationView.setItemIconTintList(null);
     }

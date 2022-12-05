@@ -46,6 +46,7 @@ public class FragmentNewPlan extends Fragment {
     private RadioGroup radioTransactionGroup;
     private RadioButton selectedRadioButton;
     private String transactionVote;
+    private ReadWriteUserWallet writeUserWallet;
     long maxid=0;
 
     @Nullable
@@ -70,12 +71,13 @@ public class FragmentNewPlan extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
 
-
+        String uid = mAuth.getUid();
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Please Wait");
         progressDialog.setCancelable(false);
 
+        writeUserWallet = new ReadWriteUserWallet();
         writeUserNewPlan = new WriteUserNewPlan();
 
         dbref = FirebaseDatabase.getInstance().getReference("Registered Users");
@@ -91,9 +93,8 @@ public class FragmentNewPlan extends Fragment {
 
             }
         });
-
         btnCancel.setOnClickListener(v -> {
-            getActivity().finish();
+            reload();
         });
 
         btnSave.setOnClickListener(v -> {
@@ -105,9 +106,18 @@ public class FragmentNewPlan extends Fragment {
 
                 if(Objects.equals(transactionVote, "Income"))
                 {
-                    Toast.makeText(getActivity().getApplicationContext(),"Data has been saved, Income confirmed", Toast.LENGTH_SHORT).show();
+                    //int income = Integer.parseInt(editAmount.getText().toString());
+
+                    //String txtBalanceAmount = writeUserWallet.getTextBalanceAmount();
+
+                    //int wallet = Integer.parseInt(txtBalanceAmount);
+                    //int total = income + wallet;
+                    //String txtTotal = Integer.toString(total);
+                    //writeUserWallet.setTextBalanceAmount(txtTotal);
+                    //reference.setValue(writeUserNewPlan);
+                    //Toast.makeText(getActivity().getApplicationContext(),"Data has been saved, Income confirmed", Toast.LENGTH_SHORT).show();
                 }
-                else
+                else if (Objects.equals(transactionVote, "Expense"))
                 {
                     Toast.makeText(getActivity().getApplicationContext(),"Data has been saved, Expense confirmed", Toast.LENGTH_SHORT).show();
                 }
@@ -168,12 +178,12 @@ public class FragmentNewPlan extends Fragment {
         dbref = FirebaseDatabase.getInstance().getReference("Registered Users").child(uid).child("Transaction");
 
         // To insert the value of the variables
-        dbref.setValue(writeUserNewPlan);
+        dbref.push().setValue(writeUserNewPlan);
 
-        //dbref.push().setValue(writeUserNewPlan);
         progressDialog.dismiss();
     }
     private void reload(){
-        getFragmentManager().beginTransaction().detach(FragmentNewPlan.this).attach(FragmentNewPlan.this).commit();
+        Fragment fragment = new FragmentNewPlan();
+        getParentFragmentManager().beginTransaction().replace(R.id.container_fragment, fragment).commit();
     }
 }

@@ -27,4 +27,92 @@
         android:src="@drawable/new_green"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textMyplan" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newplancreate">
+
+        <TableRow
+            android:background="@color/green">
+            <TextView
+                android:id="@+id/colCurrentPlan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Current Plan"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colPriceGoal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Price Goal"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <ListView
+                android:layout_width="95dp"
+                android:id="@+id/currentPlan"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+
+            <ListView
+                android:layout_width="95dp"
+                android:id="@+id/date"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+            <ListView
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priceGoal"
+                android:text="test"
+                android:textSize="12sp" />
+            <ListView
+                android:layout_width="95dp"
+                android:id="@+id/status"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

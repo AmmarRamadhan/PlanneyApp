@@ -6,6 +6,7 @@ public class WriteUserMyPlan {
     private String textDescription;
     private String textDateFrom;
     private String textDateUntil;
+    private String textStatus;
 
     public String getTextEvent() {
         return textEvent;
@@ -45,5 +46,13 @@ public class WriteUserMyPlan {
 
     public void setTextDateUntil(String pick_date_until) {
         this.textDateUntil = pick_date_until;
+    }
+
+    public String getTextStatus(){
+        return textStatus;
+    }
+
+    public void setTextStatus(String status) {
+        this.textStatus = status;
     }
 }
