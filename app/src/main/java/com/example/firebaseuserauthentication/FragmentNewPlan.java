@@ -93,6 +93,7 @@ public class FragmentNewPlan extends Fragment {
 
             }
         });
+
         btnCancel.setOnClickListener(v -> {
             reload();
         });
@@ -106,16 +107,18 @@ public class FragmentNewPlan extends Fragment {
 
                 if(Objects.equals(transactionVote, "Income"))
                 {
-                    //int income = Integer.parseInt(editAmount.getText().toString());
+                    String txtAmount = writeUserNewPlan.getTextAmount();
+
+                   // int income = Integer.parseInt(txtAmount);
 
                     //String txtBalanceAmount = writeUserWallet.getTextBalanceAmount();
 
                     //int wallet = Integer.parseInt(txtBalanceAmount);
-                    //int total = income + wallet;
+                   // int total = wallet;
                     //String txtTotal = Integer.toString(total);
                     //writeUserWallet.setTextBalanceAmount(txtTotal);
                     //reference.setValue(writeUserNewPlan);
-                    //Toast.makeText(getActivity().getApplicationContext(),"Data has been saved, Income confirmed", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity().getApplicationContext(),txtTotal, Toast.LENGTH_SHORT).show();
                 }
                 else if (Objects.equals(transactionVote, "Expense"))
                 {

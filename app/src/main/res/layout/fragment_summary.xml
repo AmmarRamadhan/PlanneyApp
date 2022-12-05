@@ -1,26 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textSummary"
+        android:id="@+id/textSummaryBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="top"
+        android:text="Balance"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textSummaryBalanceAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textSize="20dp"
+        android:text=""
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textSummaryBalance" />
+
+    <TextView
+        android:id="@+id/textSummaryTransaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Transactions"
+        android:textSize="24sp"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/textSummaryBalanceAmount" />
+
+    <TableLayout
+        android:id="@+id/tableLayoutTransactions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is summary"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSummaryTransaction">
+
+        <TableRow android:background="@color/green">
+
+            <TextView
+                android:id="@+id/colEvent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:text="Event"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/colDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:text="Date"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/colAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="4"
+                android:padding="10sp"
+                android:text="Amount"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </TableRow>
+
+        <TableRow android:background="@color/white">
+
+            <ListView
+                android:id="@+id/event_balance"
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+
+            <ListView
+                android:id="@+id/date_balance"
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+
+            <ListView
+                android:id="@+id/amount_balance"
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+
+        </TableRow>
+    </TableLayout>
+
     <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView_summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_below="@+id/textSummaryBalanceAmount"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textSummary"
+        android:layout_margin="10dp"
+        android:layout_marginTop="29dp"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/tableLayoutTransactions">
+
     </com.google.android.gms.ads.AdView>
-</RelativeLayout>
+
+    <TextView
+        android:id="@+id/textSummaryMyPlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="My Plan"
+        android:textSize="24sp"
+        ads:layout_constraintStart_toStartOf="parent"
+        ads:layout_constraintTop_toBottomOf="@+id/adView_summary" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSummaryMyPlan">
+
+        <TableRow
+            android:background="@color/green">
+            <TextView
+                android:id="@+id/colCurrentPlan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Current Plan"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colDate_Summary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colPriceGoal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Price Goal"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <ListView
+                android:layout_width="95dp"
+                android:id="@+id/currentPlan"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+
+            <ListView
+                android:layout_width="95dp"
+                android:id="@+id/date"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+            <ListView
+                android:layout_width="95dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/priceGoal"
+                android:text="test"
+                android:textSize="12sp" />
+            <ListView
+                android:layout_width="95dp"
+                android:id="@+id/status"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+        </TableRow>
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

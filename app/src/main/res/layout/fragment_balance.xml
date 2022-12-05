@@ -1,16 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="top"
+        android:text="Transactions"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is balance page"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textBalance">
 
-</RelativeLayout>
+        <TableRow
+            android:background="@color/green">
+            <TextView
+                android:id="@+id/colEvent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Event"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:id="@+id/colAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Amount"
+                android:textColor="@color/white"
+                android:padding="10sp"
+                android:textSize="12sp"
+                android:layout_weight="4"
+                android:layout_gravity="center"
+                />
+
+        </TableRow>
+        <TableRow
+            android:background="@color/white">
+
+            <ListView
+                android:layout_width="126dp"
+                android:id="@+id/event_balance"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+
+            <ListView
+                android:layout_width="126dp"
+                android:id="@+id/date_balance"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="12sp" />
+            <ListView
+                android:layout_width="126dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/amount_balance"
+                android:text="test"
+                android:textSize="12sp" />
+
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
