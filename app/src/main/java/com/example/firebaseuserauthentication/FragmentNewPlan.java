@@ -119,6 +119,7 @@ public class FragmentNewPlan extends Fragment {
                     //writeUserWallet.setTextBalanceAmount(txtTotal);
                     //reference.setValue(writeUserNewPlan);
                     //Toast.makeText(getActivity().getApplicationContext(),txtTotal, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(),"Data has been saved, Income confirmed", Toast.LENGTH_SHORT).show();
                 }
                 else if (Objects.equals(transactionVote, "Expense"))
                 {

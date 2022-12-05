@@ -65,7 +65,7 @@ public class FragmentPersonalInfo extends Fragment {
         if(firebaseUser==null){
 
         }else{
-            textPassword.setText("Password Not Set");
+            textPassword.setText("******");
         }
     }
 }
